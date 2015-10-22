@@ -7,11 +7,21 @@ var SongQueue = Songs.extend({
     });
     this.on('ended', function() {
       this.shift();
-      this.models[0].play();
+      this.playFirst();
     });
+    this.on('add', function() {
+      this.playIfOnlySongInQueue();
+    }, this);
   },
-  enqueue: function(song) {
-    this.push(song);
+  playFirst: function() {
+    this.at(0).play();
+  },
+  playIfOnlySongInQueue: function() {
+    if (this.size() === 1) {
+      this.playFirst();
+    }
+  // },
+  // enqueue: function(song) {
+  //   this.push(song);
   }
-
 });
