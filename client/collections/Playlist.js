@@ -7,5 +7,9 @@ var Playlist = Songs.extend({
 
       this.remove(song);
     });
+  },
+
+  play: function() {
+    //playitself
   }
 });
