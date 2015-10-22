@@ -22,5 +22,11 @@ var SongModel = Backbone.Model.extend({
   pause: function() {
     this.trigger('pause', this);
     this.set('plays', Math.max(0, this.get('plays')-1));
-  }
+  },
+  addToPlaylist: function() {    
+    this.trigger('addToPlaylist', this);
+  },
+  removeFromPlaylist: function() {
+    this.trigger('removeFromPlaylist', this);
+  },
 });
