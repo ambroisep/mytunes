@@ -7,14 +7,16 @@ var SongQueue = Songs.extend({
     });
     this.on('ended', function() {
       this.shift();
-      this.playFirst();
+      if(this.size() > 0) {
+        this.playFirst();
+      }
     });
     this.on('add', function() {
       this.playIfOnlySongInQueue();
     }, this);
   },
   playFirst: function() {
-    this.at(0).play();
+      this.at(0).play();
   },
   playIfOnlySongInQueue: function() {
     if (this.size() === 1) {
