@@ -3,7 +3,12 @@ var SongQueue = Songs.extend({
   initialize: function() {
     // this.on('enqueue', function() {
     this.on('dequeue', function(song) {
-      this.remove(song);
+      if(this.indexOf(song) === 0) {
+        song.pause();
+        song.ended();
+      } else {
+        this.remove(song);
+      }
     });
     this.on('ended', function() {
       this.shift();
