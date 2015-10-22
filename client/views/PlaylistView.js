@@ -9,8 +9,10 @@ var PlaylistView = Backbone.View.extend({
   },
 
   events: {
-    'click .ListenToPlaylist': this.collection.play
-  }
+    'click .ListenToPlaylist': function() {
+      this.collection.play();
+    }
+  },
 
   render: function() {
     // to preserve event handlers on child nodes, we must call .detach() on them before overwriting with .html()
