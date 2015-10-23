@@ -1,5 +1,8 @@
 var Playlist = Songs.extend({
 
+  url: '/playlist',
+  localStorage: true,
+
   initialize: function() {
     // debugger;
     this.on('removeFromPlaylist', function(song) {
